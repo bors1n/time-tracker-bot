@@ -3,3 +3,5 @@ settings.py
 __pycache__/
 .DS_Store
 venv/
+.env
+.vscode/

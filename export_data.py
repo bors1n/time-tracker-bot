@@ -1,11 +1,11 @@
 from io import BytesIO
 
 import pandas as pd
-from connect_to_database import  connect_to_database
+from connect_to_database import database_connection
 from datetime import datetime
 
 def export_user_data(user_id):
-    conn, cursor = connect_to_database()
+    conn, cursor = database_connection()
 
     # извлекаем данные
     cursor.execute("""SELECT start_time, p.project_name as project_name, total_work_time
