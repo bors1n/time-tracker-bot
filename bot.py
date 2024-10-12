@@ -1,6 +1,9 @@
 import time
 import warnings
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from setup_db import create_tables
 from export_data import export_user_data
