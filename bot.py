@@ -3,6 +3,7 @@ import time
 import warnings
 from importlib.metadata import entry_points
 from sqlite3 import IntegrityError
+import os
 
 from anyio import current_time
 
@@ -11,7 +12,7 @@ from export_data import export_user_data
 from connect_to_database import database_connection
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext, ConversationHandler, MessageHandler, Filters
-from settings import TG_TOKEN
+#from settings import TG_TOKEN
 
 import logging
 
@@ -285,7 +286,7 @@ def cancel(update: Update, context: CallbackContext) -> int:
     return ConversationHandler.END
 
 def main():
-    TOKEN = TG_TOKEN
+    TOKEN = os.getenv('BOT_TOKEN')
 
     updater = Updater(token=TOKEN, use_context=True)
     dispatcher = updater.dispatcher
